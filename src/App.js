@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { CreateAccount, Home, UserDashBoard, ReadFull } from "./pages/index";
+import { Routes, Route } from "react-router-dom";
+export default function App() {
+  const User = JSON.parse(localStorage.getItem("User"));
+  useEffect(() => {
+    // disable right button
+    const diableRightClick = (e) => {
+      if (e.button === 2) {
+        // e.preventDefault();
+        return;
+      }
+    };
+    document.addEventListener("contextmenu", diableRightClick);
+    return () => document.removeEventListener("contextmenu", diableRightClick);
+  }, []);
 
-function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {User?.jwt ? (
+          // if User if logged in
+          <>
+            <Route path="/dashboard" element={<UserDashBoard />} />
+            <Route path={`${User?.jwt ? "/blog/:jwt/:id" : "/blog/:id"}`}  element={<ReadFull />}
+            />
+          </>
+        ) : (
+          // If user is not logged in
+          <>
+            <Route path="/sign-up" element={<CreateAccount />} />
+          </>
+        )}
+      </Routes>
+    </>
   );
 }
-
-export default App;
