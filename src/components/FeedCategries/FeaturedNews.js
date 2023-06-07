@@ -55,9 +55,7 @@ export default function FeaturedNews({ SearchTerm }) {
                         color="gray"
                       />
                       <RiShareForwardLine
-                        onClick={() => {
-                          ShareUrl(item.Postid);
-                        }}
+                        onClick={()=>{ShareUrl(item.Postid)}}
                         size={25}
                         color={"gray"}
                       />
