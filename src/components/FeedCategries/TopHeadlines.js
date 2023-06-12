@@ -12,7 +12,7 @@ export default function TopHeadlines({ SearchTerm }) {
   };
 
   return (
-    <div className="flex -ml-10 w-[95vw] md:w-auto md:-ml-0 overflow-x-scroll scroll-smooth justify-start items-center md:overscroll-x-none  md:grid sm:grid-cols-3 my-5 md:place-items-center md:justify-center gap-5">
+    <div className="flex  overflow-x-scroll scroll-smooth justify-start items-center lg:overscroll-x-none  lg:grid lg:grid-cols-3 my-5  md:place-items-center md:justify-center gap-6 px-10 space-y- ">
       {Data?.filter((item) => {
         return SearchTerm == null
           ? item
@@ -26,17 +26,18 @@ export default function TopHeadlines({ SearchTerm }) {
                 <img
                   src={item.image}
                   alt={item.image}
-                  className="rounded-xl max-w-[60vw] md:max-w-[20vw] mx-auto"
+                  className="rounded-lg max-w-[60vw] md:max-w-[30vw] lg:max-w-[24vw] mx-auto"
                 />
               </div>
               {/* Post description */}
-              <div className="pl-3">
-                <div>
+              <div className="pl-3
+              pt-4">
+                <div className="">
                   <h1 className="text-[#434e53] my-1 font-bold md:text-lg">
                     {item.Tittle}
                   </h1>
                 </div>
-                <div className="flex items-center my-3 space-x-3 text-sm">
+                {/* <div className="flex items-center my-3 space-x-3 text-sm">
                   <div className="flex items-center space-x-3">
                     <h1 className="font-semibold">
                       {formatNumber(item.Likes)}
@@ -57,9 +58,9 @@ export default function TopHeadlines({ SearchTerm }) {
                       color="grey"
                     />
                   </div>
-                </div>
+                </div> */}
                 <div className="flex justify-between my-1.5">
-                  <h1 className="text-violet-800 font-bold  p-2.5  bg-[#c8c3e2] text-xs">
+                  <h1 className="text-violet-800 font-bold  p-2.5  bg-[#c8c3e2 text-xs">
                     {item.Category}
                   </h1>
                   <div className="flex items-center space-x-2">

@@ -19,10 +19,11 @@ export default function App() {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        {User?.jwt ? (
+        <Route path="/dashboard" element={<UserDashBoard />} />
+
+        {/* {User?.jwt ? (
           // if User if logged in
           <>
-            <Route path="/dashboard" element={<UserDashBoard />} />
             <Route path={`${User?.jwt ? "/blog/:jwt/:id" : "/blog/:id"}`}  element={<ReadFull />}
             />
           </>
@@ -31,7 +32,7 @@ export default function App() {
           <>
             <Route path="/sign-up" element={<CreateAccount />} />
           </>
-        )}
+        )} */}
       </Routes>
     </>
   );

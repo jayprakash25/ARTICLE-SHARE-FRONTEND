@@ -19,12 +19,13 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="bg-[#eff0f3]">
+    <div className="bg-[#F1F6F9] ">
       <Navbar SearchTerm={SearchTerm} setSearchTerm={setSearchTerm} />
-      <div className="md:ml-72">
+      <div className="lg:ml-20">
         <Feed SearchTerm={SearchTerm} />
       </div>
       {Welcomemodel ? <Welcome setWelcomemodel={setWelcomemodel} /> : null}
     </div>
   );
 }
+

@@ -12,20 +12,20 @@ import {
 import { useState } from "react";
 import { FeedTittle } from "../components/FeedCategries";
 export default function UserDashBoard() {
-  const { jwt, Name } = JSON.parse(localStorage.getItem("User"));
+  // const { jwt, Name } = JSON.parse(localStorage.getItem("User"));
   const [dropdown, setdropdown] = useState(false);
   const [ToogleSidebar, setToogleSidebar] = useState(false);
   const [togglemenulist, settogglemenulist] = useState(false);
 
   const Notifications = false;
-  console.log(jwt);
+  // console.log(jwt);
 
   return (
-    <div className="bg-[#eff0f3]">
+    <div className="bg-[#ECF8F9] lg:ml-20">
       <nav className="flex justify-between px-4 py-6 md:px-8 md:justify-between">
         <FeedTittle
-          Tittle={`${Name}'s DashBoard`}
-          styles={" pl-14 hidden md:block md:pl-72"}
+          Tittle={`ELon's DashBoard`}
+          styles={` pl-20 hidden md:block `}
         />
         <AiOutlineMenu
           size={30}
@@ -62,12 +62,12 @@ export default function UserDashBoard() {
       </nav>
       {dropdown ? <UserDashBoardDropdown /> : null}
       <DasboardMenu Page={"My DashBoard"} />
-      <div className={`md:ml-72 ${dropdown ? "-my-20" : null} space-y-14`}>
+      <div className={`m-8 px-8 space-y-14`}>
         <FeedTittle
-          Tittle={`${Name}'s DashBoard`}
-          styles={" pl-14 md:hidden"}
+          Tittle={`Elon's DashBoard`}
+          styles={"  md:hidden text-center"}
         />
-        <UserDashBoardBox Name={Name} />
+        <UserDashBoardBox Name= 'Elon' />
         <BarGraph dropdown={dropdown} />
         <UserSharedPost />
       </div>

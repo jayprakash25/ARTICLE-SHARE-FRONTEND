@@ -1,4 +1,4 @@
-import { Line } from "react-chartjs-2";
+import { Bar, Line } from "react-chartjs-2";
 import {
   BarElement,
   CategoryScale,
@@ -38,7 +38,7 @@ export default function BarGraph({ dropdown }) {
         className={`px-10 bg-white   ${dropdown ? "my-16" : null} -z-50`}
         style={{ width: "100%", height: "400px" }}
       >
-        <Line data={data} options={options} />
+        <Bar data={data} options={options} />
       </div>
     </div>
   );

@@ -58,16 +58,16 @@ export default function Navbar({ SearchTerm, setSearchTerm }) {
             }}
           />
         </div>
-        <div className="md:translate-y-1 ">
+        <div className="md:translate-y-1 hidden md:block">
           <Link to={`${User ? `/dashboard` : "/sign-up"}`}>
             {User ? (
               <MdOutlineAccountCircle size={34} color={"grey"} />
             ) : (
               <button
-                className={`bg-blue-500  text-sm 
+                className={` bg-[#0B2447]  text-sm 
             text-white px-7 font-semibold rounded-full py-2 hover:brightness-90`}
               >
-                Signup
+                Sign up
               </button>
             )}
           </Link>

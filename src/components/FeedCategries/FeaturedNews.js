@@ -20,7 +20,7 @@ export default function FeaturedNews({ SearchTerm }) {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center gap-5 my-5 md:w-auto md:-ml-0 md:overscroll-x-none md:grid sm:grid-cols-3 md:place-items-center md:justify-center">
+      <div className="flex flex-col items-center justify-center gap-5 my-5 md:w-auto  md:overscroll-x-none md:grid md:grid-cols-2 lg:grid-cols-3 md:place-items-center md:justify-center lg:px-10 ">
         {Data?.filter((item) => {
           return SearchTerm == null
             ? item
@@ -28,32 +28,28 @@ export default function FeaturedNews({ SearchTerm }) {
         }).map((item, i) => {
           return (
             <React.Fragment key={i}>
-              <div className=" flex bg-white flex-col  hover:shadow-md duration-300 ease-in-out border-[1px] rounded-lg border-gray-300 p-4 justify-center space-y-2 cursor-pointer">
+              <div className=" flex bg-white flex-col  hover:shadow-md duration-300 ease-in-out border-[1px] rounded-2xl border-gray-300 p-4 justify-center space-y-2 cursor-pointer">
                 {/* Post image */}
                 <div>
                   <img
                     src={item.image}
                     alt={item.image}
-                    className="rounded-xl max-w-[80vw] md:max-w-[20vw] mx-auto"
+                    className="rounded-lg   md:max-w-[39vw] lg:max-w-[24vw] mx-auto"
                   />
                 </div>
                 {/* Post description */}
-                <div className="pl-3">
+                <div className="pl-3 pt-4">
                   <div>
                     <h1 className="text-[#434e53] my-1 font-bold text-xl">
                       {item.Tittle}
                     </h1>
                   </div>
                   <div className="flex justify-between items-center my-2.5">
-                    <h1 className="text-violet-800 font-bold  p-2.5 bg-[#c8c3e2] text-xs">
+                    <h1 className="text-violet-800 font-bold  p-2.5  text-xs">
                       {item.Category}
                     </h1>
                     <div className="flex items-center justify-end space-x-3.5 py-3">
-                      <AiOutlineHeart
-                        cursor={"pointer"}
-                        size={25}
-                        color="gray"
-                      />
+
                       <RiShareForwardLine
                         onClick={()=>{ShareUrl(item.Postid)}}
                         size={25}

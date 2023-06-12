@@ -61,13 +61,13 @@ export default function UserSharedPost() {
 
   return (
     <>
-      <FeedTittle Tittle={`Shared Post's`} styles={" pl-14  md:pl-26"} />
-      <div className="flex flex-col justify-center grid-cols-2 gap-5 px-6 pb-4 md:grid md:px-14 md:gap-7">
+      <FeedTittle Tittle={`Shared Post's`} styles={" text-center md:text-start lg:pl-20"} />
+      <div className="grid md:grid-cols-2 gap-5  px-6 pb-4 md:grid md:px-14 md:gap-7">
         {Data.map((item, i) => {
           return (
             <div
               key={i}
-              className="flex md:max-w-[50vw] mx-auto bg-white items-center border-[1.2px] border-gray-200 shadow-sm gap-5 p-4"
+              className="flex  md:max-w-[50vw]  bg-white items-center border-[1.2px] border-gray-200 shadow-sm gap-5 p-4"
             >
               <div>
                 <img
