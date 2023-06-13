@@ -4,9 +4,9 @@ export default function DasboardMenu({ Page }) {
   return (
     <>
       <aside>
-        <div className="fixed bottom-0 left-0 hidden px-7 bg-[#0B2447] text-white shadow-sm top-0 lg:block">
+        <div className="fixed  bottom-0 left-0 hidden px-7 py-5 bg-[#031738] text-white shadow-sm top-0  lg:block">
           <Logo />
-          <ul className="flex justify-between py-10 gap-x-10">
+          <ul className="flex justify-between gap-x-10">
             <MenuListitem Page={Page} />
           </ul>
         </div>

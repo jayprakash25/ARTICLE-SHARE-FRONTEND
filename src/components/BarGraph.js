@@ -1,4 +1,4 @@
-import { Bar, Line } from "react-chartjs-2";
+import { Bar, Chart, Line } from "react-chartjs-2";
 import {
   BarElement,
   CategoryScale,
@@ -8,26 +8,28 @@ import {
   Tooltip,
 } from "chart.js/auto";
 export default function BarGraph({ dropdown }) {
+  const fillGradient = {
+    fill: true,
+    backgroundColor: "rgba(91,33,182, 0.5)",
+    gradient: {
+      id: "fillGradient",
+    },
+  };
+
   const labels = ["Views", "Total Views", "Post Shared", "Total Earnings "];
   const data = {
     labels: labels,
     datasets: [
       {
         label: "Your Graph",
-        data: [80, 50, 60, 90],
-        backgroundColor: ["#5a7bfb", "#5a7bfb", "#5a7bfb", "#5a7bfb"],
-        fill: true,
+        data: [30, 20, 40, 20],
+        ...fillGradient,
       },
     ],
   };
 
   const options = {
     maintainAspectRatio: false,
-    scales: {
-      x: {
-        barPercentage: 0.5, // Adjust the width of the bars (0.6 means 60% of the available space)
-      },
-    },
   };
 
   ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
@@ -35,10 +37,12 @@ export default function BarGraph({ dropdown }) {
   return (
     <div className="md:px-7 px-2.5">
       <div
-        className={`px-10 bg-white   ${dropdown ? "my-16" : null} -z-50`}
-        style={{ width: "100%", height: "400px" }}
+        className={` shadow-2xl shadow-slate-200 px-10 bg-white   ${
+          dropdown ? "my-16" : null
+        } -z-50`}
+        style={{ width: "100%", height: "300px" }}
       >
-        <Bar data={data} options={options} />
+        <Line data={data} options={options} />
       </div>
     </div>
   );

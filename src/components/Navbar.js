@@ -7,20 +7,20 @@ import { MdOutlineAccountCircle } from "react-icons/md";
 export default function Navbar({ SearchTerm, setSearchTerm }) {
   const [togglemenulist, settogglemenulist] = useState(false);
 
-
   const User = JSON.parse(localStorage.getItem("User"));
 
+  {
+    /* Navbar  */
+  }
   return (
     <>
-      {/* Navbar  */}
-      <nav className="flex items-center justify-between p-4 shadow-sm md:shadow-none md:justify-end md:items-start">
-        {/* Menu List */}
+      <nav className="flex items-center justify-between p-4 md:justify-end md:items-start">
         <div>
           {/* Toggling menu bar */}
           {togglemenulist ? null : (
             <>
               {/* Desktop Menulist */}
-              <DasboardMenu Page={"Home"}/>
+              <DasboardMenu Page={"Home"} />
               <AiOutlineMenu
                 onClick={() => {
                   settogglemenulist(!togglemenulist);
@@ -51,20 +51,20 @@ export default function Navbar({ SearchTerm, setSearchTerm }) {
           <input
             type="text"
             value={SearchTerm}
-            className="outline-none rounded-full border-[2px] border-gray-200 px-10 w-[70vw] md:w-[30vw] py-2.5"
+            className="outline-none rounded-lg border-[1px] border-gray-200 px-10 w-[70vw] md:w-[30vw] py-2.5"
             placeholder="Search anything"
             onChange={(e) => {
               setSearchTerm(e.target.value);
             }}
           />
         </div>
-        <div className="md:translate-y-1 hidden md:block">
+        <div className="md:translate-y-1 md:block">
           <Link to={`${User ? `/dashboard` : "/sign-up"}`}>
             {User ? (
               <MdOutlineAccountCircle size={34} color={"grey"} />
             ) : (
               <button
-                className={` bg-[#0B2447]  text-sm 
+                className={` bg-violet-800  text-sm 
             text-white px-7 font-semibold rounded-full py-2 hover:brightness-90`}
               >
                 Sign up

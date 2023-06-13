@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { CreateAccount, Home, UserDashBoard, ReadFull } from "./pages/index";
 import { Routes, Route } from "react-router-dom";
+import "animate.css";
 export default function App() {
   const User = JSON.parse(localStorage.getItem("User"));
   useEffect(() => {
@@ -21,10 +22,12 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/dashboard" element={<UserDashBoard />} />
 
-        {/* {User?.jwt ? (
-          // if User if logged in
+        {User?.jwt ? (
+          // if User is logged in
           <>
-            <Route path={`${User?.jwt ? "/blog/:jwt/:id" : "/blog/:id"}`}  element={<ReadFull />}
+            <Route
+              path={`${User?.jwt ? "/blog/:jwt/:id" : "/blog/:id"}`}
+              element={<ReadFull />}
             />
           </>
         ) : (
@@ -32,7 +35,7 @@ export default function App() {
           <>
             <Route path="/sign-up" element={<CreateAccount />} />
           </>
-        )} */}
+        )}
       </Routes>
     </>
   );

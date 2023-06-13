@@ -10,10 +10,11 @@ import UserDashBoardDropdown from "./UserDashBoardDropdown";
 import UserDashBoardBox from "./UserDashBoardBox";
 import UserSharedPost from "./UserSharedPost";
 import UserDashBoardFooter from "./UserDashBoardFooter";
-import UserDashBoardSideBar from "./UserDashBoardSideBar";
 import BarGraph from "./BarGraph";
+import UploadUserImage from "../models/UploadUserImage";
 
 export {
+  UploadUserImage,
   BarGraph,
   UserDashBoardFooter,
   UserDashBoardBox,
@@ -27,5 +28,4 @@ export {
   Post,
   SignupForm,
   UserSharedPost,
-  UserDashBoardSideBar,
 };

@@ -6,7 +6,7 @@ import {
 } from "./FeedCategries";
 export default function Feed({ SearchTerm }) {
   return (
-    <div className="flex flex-col justify-center p-8 ">
+    <div className="flex flex-col justify-center px-8 ">
       {/* <FeedTittle Tittle={"Search by Categories"} />
       <Categories /> */}
       <FeedTittle Tittle={"Top Headlines"} />

@@ -20,7 +20,7 @@ export default function FeaturedNews({ SearchTerm }) {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center gap-5 my-5 md:w-auto  md:overscroll-x-none md:grid md:grid-cols-2 lg:grid-cols-3 md:place-items-center md:justify-center lg:px-10 ">
+      <div className="flex flex-col items-center justify-center gap-5 my-5 md:w-auto md:overscroll-x-none md:grid md:grid-cols-2 lg:grid-cols-3 md:place-items-center md:justify-center ">
         {Data?.filter((item) => {
           return SearchTerm == null
             ? item
@@ -28,7 +28,7 @@ export default function FeaturedNews({ SearchTerm }) {
         }).map((item, i) => {
           return (
             <React.Fragment key={i}>
-              <div className=" flex bg-white flex-col  hover:shadow-md duration-300 ease-in-out border-[1px] rounded-2xl border-gray-300 p-4 justify-center space-y-2 cursor-pointer">
+              <div className="flex flex-col justify-center p-4 space-y-2 duration-300 ease-in-out bg-white border-gray-300 shadow-2xl cursor-pointer shadow-slate-200 rounded-2xl">
                 {/* Post image */}
                 <div>
                   <img
@@ -38,20 +38,21 @@ export default function FeaturedNews({ SearchTerm }) {
                   />
                 </div>
                 {/* Post description */}
-                <div className="pl-3 pt-4">
+                <div className="pt-4 pl-3">
                   <div>
                     <h1 className="text-[#434e53] my-1 font-bold text-xl">
                       {item.Tittle}
                     </h1>
                   </div>
                   <div className="flex justify-between items-center my-2.5">
-                    <h1 className="text-violet-800 font-bold  p-2.5  text-xs">
+                    <h1 className="bg-violet-800 text-white font-semibold p-2.5 text-xs">
                       {item.Category}
                     </h1>
                     <div className="flex items-center justify-end space-x-3.5 py-3">
-
                       <RiShareForwardLine
-                        onClick={()=>{ShareUrl(item.Postid)}}
+                        onClick={() => {
+                          ShareUrl(item.Postid);
+                        }}
                         size={25}
                         color={"gray"}
                       />

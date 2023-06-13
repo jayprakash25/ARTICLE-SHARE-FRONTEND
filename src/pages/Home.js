@@ -21,11 +21,10 @@ export default function Home() {
   return (
     <div className="bg-[#F1F6F9] ">
       <Navbar SearchTerm={SearchTerm} setSearchTerm={setSearchTerm} />
-      <div className="lg:ml-20">
+      <div className="lg:ml-56">
         <Feed SearchTerm={SearchTerm} />
       </div>
       {Welcomemodel ? <Welcome setWelcomemodel={setWelcomemodel} /> : null}
     </div>
   );
 }
-
