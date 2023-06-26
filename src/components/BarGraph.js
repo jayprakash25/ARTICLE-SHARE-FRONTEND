@@ -24,6 +24,7 @@ export default function BarGraph({ dropdown }) {
         label: "Your Graph",
         data: [30, 20, 40, 20],
         ...fillGradient,
+        tension: 0.4,
       },
     ],
   };

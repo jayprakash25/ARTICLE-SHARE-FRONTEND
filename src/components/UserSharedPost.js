@@ -1,69 +1,30 @@
 import { AiOutlineEye } from "react-icons/ai";
 import { FeedTittle } from "./FeedCategries";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
-export default function UserSharedPost() {
-  const Data = [
-    {
-      image:
-        "https://images.pexels.com/photos/889545/pexels-photo-889545.jpeg?auto=compress&cs=tinysrgb&w=600",
-      Tittle: "Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit",
-      Category: "Technology",
-      Likes: "1.2k",
-      DisLikes: "1k",
-      Time: "2:00",
-    },
-    {
-      image:
-        "https://images.pexels.com/photos/889545/pexels-photo-889545.jpeg?auto=compress&cs=tinysrgb&w=600",
-      Tittle: "Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit",
-      Category: "Technology",
-      Likes: "1.2k",
-      DisLikes: "1k",
-      Time: "2:00",
-    },
-    {
-      image:
-        "https://images.pexels.com/photos/889545/pexels-photo-889545.jpeg?auto=compress&cs=tinysrgb&w=600",
-      Tittle: "Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit",
-      Category: "Technology",
-      Likes: "1.2k",
-      DisLikes: "1k",
-      Time: "2:00",
-    },
-    {
-      image:
-        "https://images.pexels.com/photos/889545/pexels-photo-889545.jpeg?auto=compress&cs=tinysrgb&w=600",
-      Tittle: "Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit",
-      Category: "Technology",
-      Likes: "1.2k",
-      DisLikes: "1k",
-      Time: "2:00",
-    },
-    {
-      image:
-        "https://images.pexels.com/photos/889545/pexels-photo-889545.jpeg?auto=compress&cs=tinysrgb&w=600",
-      Tittle: "Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit",
-      Category: "Technology",
-      Likes: "1.2k",
-      DisLikes: "1k",
-      Time: "2:00",
-    },
-    {
-      image:
-        "https://images.pexels.com/photos/889545/pexels-photo-889545.jpeg?auto=compress&cs=tinysrgb&w=600",
-      Tittle: "Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit",
-      Category: "Sports",
-      Likes: "1.2k",
-      DisLikes: "1k",
-      Time: "2:00",
-    },
-  ];
+export default function UserSharedPost({Userjwt}) {
+
+
+  const [SharedPosts, setSharedPosts] = useState([]);
+
+  useEffect(() => {
+    axios.get('/shared-post')
+      .then(response => {
+        setSharedPosts(response.data);
+      })
+      .catch(error => {
+        console.error('Failed to fetch shared posts', error);
+      });
+  }, []);
+
+
+  
   return (
     <>
       <FeedTittle Tittle={`Shared Post's`} styles={"md:text-start lg:pl-20"} />
       <div className="grid gap-5 px-6 pb-4 md:grid-cols-2 md:grid md:px-14 ">
-        {Data.map((item, i) => {
+        {SharedPosts.map((item, i) => {
           return (
             <div
               key={i}
@@ -86,7 +47,7 @@ export default function UserSharedPost() {
                     <AiOutlineEye cursor={"pointer"} size={25} color="grey" />
                   </div>
                   <p className="text-sm font-semibold text-gray-500">
-                    Read more
+                    Read More
                   </p>
                 </div>
               </div>
