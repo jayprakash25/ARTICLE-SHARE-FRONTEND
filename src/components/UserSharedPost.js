@@ -3,23 +3,20 @@ import { FeedTittle } from "./FeedCategries";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function UserSharedPost({Userjwt}) {
-
-
+export default function UserSharedPost({ Userjwt }) {
   const [SharedPosts, setSharedPosts] = useState([]);
 
   useEffect(() => {
-    axios.get('/shared-post')
-      .then(response => {
+    axios
+      .get("/shared-post")
+      .then((response) => {
         setSharedPosts(response.data);
       })
-      .catch(error => {
-        console.error('Failed to fetch shared posts', error);
+      .catch((error) => {
+        console.error("Failed to fetch shared posts", error);
       });
   }, []);
 
-
-  
   return (
     <>
       <FeedTittle Tittle={`Shared Post's`} styles={"md:text-start lg:pl-20"} />
@@ -43,7 +40,9 @@ export default function UserSharedPost({Userjwt}) {
                 </h1>
                 <div className="flex items-center justify-end space-x-4 cursor-pointer">
                   <div className="flex items-center space-x-2 md:mr-0">
-                    <p className="text-sm font-bold text-gray-500">{50}</p>
+                    <p className="text-sm font-bold text-gray-500">
+                      {item.Views}
+                    </p>
                     <AiOutlineEye cursor={"pointer"} size={25} color="grey" />
                   </div>
                   <p className="text-sm font-semibold text-gray-500">

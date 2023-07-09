@@ -1,4 +1,8 @@
-import { AiOutlineArrowRight, AiOutlineConsoleSql, AiOutlineHeart } from "react-icons/ai";
+import {
+  AiOutlineArrowRight,
+  AiOutlineConsoleSql,
+  AiOutlineHeart,
+} from "react-icons/ai";
 import { RiShareForwardLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import Data from "../../Data/Data";
@@ -6,7 +10,7 @@ import React from "react";
 export default function FeaturedNews({ SearchTerm }) {
   const User = JSON.parse(localStorage.getItem("User"));
 
-  const shareSave = async (Postid,image, Tittle, Category) => {
+  const shareSave = async (Postid, image, Tittle, Category) => {
     try {
       await navigator.share({
         title: "NewsHub Post",
@@ -14,11 +18,13 @@ export default function FeaturedNews({ SearchTerm }) {
         url: `https://www.example.com/${User?.jwt}/${Postid}`,
       });
 
-// Sent Request to the server to save the post...
-      await fetch('/shared-post',{
-        method: 'PUT',
+      // Send a request to the server to increment the view count
+      // await fetch(`/shared-post/${Postid}/view/`);
+      // Sent Request to the server to save the post...
+      await fetch("/shared-post", {
+        method: "PUT",
         headers: {
-          'Content-type': 'application/json',
+          "Content-type": "application/json",
         },
         body: JSON.stringify({
           Userjwt: User.jwt,
@@ -28,7 +34,6 @@ export default function FeaturedNews({ SearchTerm }) {
           Category,
         }),
       });
-    
     } catch (error) {
       console.error("Error sharing:", error);
     }
@@ -67,7 +72,12 @@ export default function FeaturedNews({ SearchTerm }) {
                     <div className="flex items-center justify-end space-x-3.5 py-3">
                       <RiShareForwardLine
                         onClick={() => {
-                          shareSave(item.Postid, item.image, item.Tittle, item.Category);  
+                          shareSave(
+                            item.Postid,
+                            item.image,
+                            item.Tittle,
+                            item.Category
+                          );
                         }}
                         size={25}
                         color={"gray"}
