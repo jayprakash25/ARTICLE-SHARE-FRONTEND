@@ -12,13 +12,18 @@ export default function FeaturedNews({ SearchTerm }) {
 
   const shareSave = async (Postid, image, Tittle, Category) => {
     try {
-      await navigator.share({
-        title: "NewsHub Post",
-        text: "Hey Check out the blog from NewsHub",
-        url: `https://www.example.com/${User?.jwt}/${Postid}`,
-      });
+      if (navigator.share) {
+        await navigator.share({
+          title: "NewsHub Post",
+          text: "Hey Check out the blog from NewsHub",
+          url: `https://localhost:3000/blog/${User?.jwt}/${Postid}`,
+        });
+      }
 
       // Send a request to the server to increment the view count
+      await fetch(`/blog/${User?.jwt}/${Postid}`, {
+        method: "GET",
+      });
       // await fetch(`/shared-post/${Postid}/view/`);
       // Sent Request to the server to save the post...
       await fetch("/shared-post", {

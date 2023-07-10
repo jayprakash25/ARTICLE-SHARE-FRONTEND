@@ -6,29 +6,50 @@ export default function ReadFull() {
   const [currentView, setcurrentView] = useState(0);
   const { jwt, id } = useParams();
 
-  const PostView = async () => {
+  const fetchPostView = async () => {
     try {
-     const response =  await fetch(`/shared-post/${id}/view`, {
+      const response = await fetch(`/blog/${jwt}/${id}`, {
         method: "GET",
       });
 
-      if(response.ok){
+      if (response.ok) {
         const updatedPost = await response.json();
         setcurrentView(updatedPost.Views);
-      }else{
-        console.log("Failed to view count");
+      } else {
+        console.log("Failed to fetch view count");
       }
-      // fetch the db with jwt and Post the view of given image id
-      // Simple eg:
-      // setcurrentView(currentView + 1);
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    PostView();
-  }, [id]);
+    fetchPostView();
+  }, [jwt, id]);
+
+  // const PostView = async () => {
+  //   try {
+  //    const response =  await fetch(`/shared-post/${id}/view`, {
+  //       method: "GET",
+  //     });
+
+  //     if(response.ok){
+  //       const updatedPost = await response.json();
+  //       setcurrentView(updatedPost.Views);
+  //     }else{
+  //       console.log("Failed to view count");
+  //     }
+  //     // fetch the db with jwt and Post the view of given image id
+  //     // Simple eg:
+  //     // setcurrentView(currentView + 1);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   PostView();
+  // }, [id]);
 
   return (
     <>
