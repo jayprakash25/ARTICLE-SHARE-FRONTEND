@@ -1,7 +1,5 @@
 import {
   AiOutlineArrowRight,
-  AiOutlineConsoleSql,
-  AiOutlineHeart,
 } from "react-icons/ai";
 import { RiShareForwardLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
@@ -20,12 +18,13 @@ export default function FeaturedNews({ SearchTerm }) {
         });
       }
 
-      // Send a request to the server to increment the view count
-      await fetch(`/blog/${User?.jwt}/${Postid}`, {
-        method: "GET",
-      });
-      // await fetch(`/shared-post/${Postid}/view/`);
-      // Sent Request to the server to save the post...
+      //   // Send a request to the server to increment the view count
+      //   await fetch(`/blog/${User?.jwt}/${Postid}`, {
+      //     method: "GET",
+      //   });
+      //   // await fetch(`/shared-post/${Postid}/view/`);
+
+      //Sent Request to the server to save the post...
       await fetch("/shared-post", {
         method: "PUT",
         headers: {
